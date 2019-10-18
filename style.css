@@ -1,0 +1,302 @@
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            height: 100%;
+        }
+        
+        body {
+            font: 14px/1 "Open Sans", sans-serif;
+            color: #555;
+            background: #fafafa;
+        }
+        /* фиксированное верхнее меню*/
+        
+        .top-nav {
+            background: #555555;
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+            left: 0;
+            opacity: 0.95;
+            padding: 8px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 9999;
+        }
+        
+        .topnav-wrapper {
+            margin: 0 auto;
+            max-width: 980px;
+        }
+        
+        .top-logo {
+            color: #ddd;
+            font: bold 16px/20px "Crete Round", serif;
+            padding-left: 10px;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+        }
+        
+        .top-logo a {
+            color: #B8B8B8;
+            text-decoration: none;
+        }
+        
+        .top-logo a:hover {
+            color: #ddd;
+        }
+        
+        .topnav-right {
+            float: right;
+        }
+        
+        .right-menu {
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .right-menu li {
+            float: left;
+            list-style-type: none;
+            margin: 0;
+        }
+        
+        .right-menu li a {
+            color: #B8B8B8;
+            display: block;
+            padding: 0.05em 0.75em;
+            text-decoration: none;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .right-menu li a:hover {
+            color: #fff;
+            text-shadow: none;
+        }
+        
+        .right-menu li span {
+            font-size: 16px;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 25px 10px 0;
+        }
+        
+        h1 {
+            padding: 50px 0;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        .info {
+            color: rgba(78, 78, 78, 0.8);
+            width: 100%;
+            margin: 40px auto;
+            text-align: center;
+            font-weight: 300;
+        }
+        
+        .info a {
+            color: #bbb;
+            text-decoration: none;
+        }
+        
+        .info a:hover {
+            color: #888;
+        }
+        /* Базовый контейнер табов */
+        
+        .tabs {
+            min-width: 320px;
+            max-width: 1280px;
+            padding: 0px;
+            margin: 20px auto;
+        }
+        /* Стили секций с содержанием */
+        
+        .tabs > section {
+            display: none;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+        
+        .tabs > section > p {
+            margin: 0 0 5px;
+            line-height: 1.5;
+            color: #383838;
+            /* прикрутим анимацию */
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+        }
+        /* Описываем анимацию свойства opacity */
+        
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Прячем чекбоксы */
+        
+        .tabs > input {
+            display: none;
+            position: absolute;
+        }
+        /* Стили переключателей вкладок (табов) */
+        
+        .tabs > label {
+            display: inline-block;
+            margin: 0 0 -1px;
+            padding: 15px 25px;
+            font-weight: 600;
+            text-align: center;
+            color: #aaa;
+            border: 0px solid #ddd;
+            border-width: 1px 1px 1px 1px;
+            background: #f1f1f1;
+            border-radius: 3px 3px 0 0;
+        }
+        /* Шрифт-иконки от Font Awesome в формате Unicode */
+        
+        .tabs > label:before {
+            font-family: fontawesome;
+            font-weight: normal;
+            margin-right: 10px;
+        }
+        
+        .tabs > label[for*="1"]:before {
+        }
+        
+        .tabs > label[for*="2"]:before {
+        }
+        
+        .tabs > label[for*="3"]:before {
+        }
+        
+        .tabs > label[for*="4"]:before {
+        }
+        .tabs > label[for*="5"]:before {
+        }
+        /* Изменения стиля переключателей вкладок при наведении */
+        
+        .tabs > label:hover {
+            color: #888;
+            cursor: pointer;
+        }
+        /* Стили для активной вкладки */
+        
+        .tabs > input:checked + label {
+            color: #555;
+            border-top: 1px solid #009933;
+            border-bottom: 1px solid #fff;
+            background: #fff;
+        }
+        /* Активация секций с помощью псевдокласса :checked */
+        
+        #tab1:checked ~ #content-tab1,
+        #tab2:checked ~ #content-tab2,
+        #tab3:checked ~ #content-tab3,
+        #tab4:checked ~ #content-tab4,
+        #tab5:checked ~ #content-tab5 {
+            display: block;
+        }
+        /* Убираем текст с переключателей 
+* и оставляем иконки на малых экранах
+*/
+        
+        @media screen and (max-width: 680px) {
+            .tabs > label {
+                font-size: 0;
+            }
+            .tabs > label:before {
+                margin: 0;
+                font-size: 18px;
+            }
+        }
+        /* Изменяем внутренние отступы 
+*  переключателей для малых экранов
+*/
+        
+        @media screen and (max-width: 400px) {
+            .tabs > label {
+                padding: 15px;
+            }
+        }
+        p.error {
+            color: red;
+            text-align: center;
+        }
+        p.result {
+            color: green;
+            text-align: center;
+        }
+        b {
+            color: red;
+        }
+        div.tabs {
+            width: 2000px;
+            
+        }
+        label {
+            margin: 0 0 0 0;
+            text-align: right;
+        }
+        input {
+            right: 0px;
+        }
+        select,input,textarea {
+            width: 300px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: 15px;
+        }
+        #content-tab1 {
+            text-align: right;
+            padding-right: 350px;
+            width: 1095px;
+        }
+        #content-tab2 {
+            text-align: right;
+            padding-right: 350px;
+            width: 1095px;
+        }
+        #content-tab3 {
+            text-align: right;
+            padding-right: 350px;
+            width: 1095px;
+        }
+        #content-tab4 {
+            text-align: right;
+            padding-right: 350px;
+            width: 1095px;
+        }
+        #content-tab5 {
+            text-align: right;
+            padding-right: 350px;
+            width: 1095px;
+        }
